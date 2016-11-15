@@ -15,6 +15,9 @@
   "require-dev": {
     "Composer/Composer": "^1.2"
   },
+  "require": {
+    "composer-plugin-api": "^1.0"
+  },
   "extra": {
     "class": "Dblencowe\\ScrubberDummy\\Scrubber"
   }
