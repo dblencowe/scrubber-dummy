@@ -6,6 +6,7 @@ use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
+use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
 
 class Scrubber implements PluginInterface, EventSubscriberInterface
@@ -37,7 +38,7 @@ class Scrubber implements PluginInterface, EventSubscriberInterface
         ];
     }
 
-    public function registerPlugin()
+    public function registerPlugin(Event $event)
     {
         echo 'Running ScrubberDummy...';
         $cachePath = defined('CACHE_PATH') ? CACHE_PATH : getcwd() . '/.dataScrubber.cache';
