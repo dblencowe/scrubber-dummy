@@ -35,6 +35,7 @@ class Scrubber
 
     public function registerPlugin()
     {
+        die('test');
         $cachePath = defined('CACHE_PATH') ? CACHE_PATH : getcwd() . '/.dataScrubber.cache';
         if (!is_file($cachePath)) {
             throw new \Exception("Cache file $cachePath not found");
