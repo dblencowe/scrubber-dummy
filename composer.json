@@ -1,7 +1,7 @@
 {
   "name": "dblencowe/scrubber-dummy",
   "type": "scrubber-driver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "authors": [{
     "name": "Dave Blencowe",
