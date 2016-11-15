@@ -2,9 +2,12 @@
 
 namespace Dblencowe\ScrubberDummy;
 
+use Composer\Composer;
+use Composer\IO\IOInterface;
+use Composer\Plugin\PluginInterface;
 use Composer\Script\ScriptEvents;
 
-class Scrubber
+class Scrubber implements PluginInterface, EventSubscriberInterface
 {
     private $driverInfo = [
         'name' => 'Dummy Scrubber',
@@ -35,7 +38,6 @@ class Scrubber
 
     public function registerPlugin()
     {
-        die('test');
         $cachePath = defined('CACHE_PATH') ? CACHE_PATH : getcwd() . '/.dataScrubber.cache';
         if (!is_file($cachePath)) {
             throw new \Exception("Cache file $cachePath not found");
@@ -44,4 +46,16 @@ class Scrubber
         file_put_contents($cachePath, json_encode($this->driverInfo), FILE_APPEND | LOCK_EX);
     }
 
+    /**
+     * Apply plugin modifications to Composer
+     *
+     * @param Composer $composer
+     * @param IOInterface $io
+     */
+    public function activate(Composer $composer, IOInterface $io)
+    {
+        $this->package = $composer->getPackage();
+        $this->io = $io;
+        $this->projectRoot = getcwd();
+    }
 }
