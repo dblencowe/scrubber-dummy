@@ -14,5 +14,8 @@
   },
   "require-dev": {
     "Composer/Composer": "^1.2"
-  }
+  },
+  "extra": {
+    "class": "Dblencowe\\ScrubberDummy\\Scrubber"
+  },
 }
