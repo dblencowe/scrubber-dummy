@@ -42,10 +42,6 @@ class Scrubber implements PluginInterface, EventSubscriberInterface
     {
         echo 'Running ScrubberDummy...';
         $cachePath = defined('CACHE_PATH') ? CACHE_PATH : getcwd() . '/.dataScrubber.cache';
-        if (!is_file($cachePath) && !is_writable($cachePath)) {
-            throw new \Exception("Cache file $cachePath not found");
-        }
-
         file_put_contents($cachePath, json_encode($this->driverInfo), FILE_APPEND | LOCK_EX);
     }
 
