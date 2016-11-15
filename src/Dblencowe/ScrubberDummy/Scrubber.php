@@ -12,8 +12,8 @@ use Composer\Script\ScriptEvents;
 class Scrubber implements PluginInterface, EventSubscriberInterface
 {
     private $driverInfo = [
-        'name' => 'Dummy Scrubber',
-        'scrubber' => 'Dblencowe\\ScrubberDummy\\scrub',
+        'name' => 'dummy-scrubber',
+        'scrubber' => 'Dblencowe\\ScrubberDummy\\Scrubber\\scrub',
     ];
 
     public function scrub()
