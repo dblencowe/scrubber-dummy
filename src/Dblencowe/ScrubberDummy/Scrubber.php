@@ -40,9 +40,16 @@ class Scrubber implements PluginInterface, EventSubscriberInterface
 
     public function registerPlugin(Event $event)
     {
-        echo 'Running ScrubberDummy...';
         $cachePath = defined('CACHE_PATH') ? CACHE_PATH : getcwd() . '/.dataScrubber.cache';
-        file_put_contents($cachePath, json_encode($this->driverInfo), FILE_APPEND | LOCK_EX);
+
+        $drivers = [];
+        if (file_exists($cachePath)) {
+            $drivers = json_decode(file_get_contents($cachePath));
+        }
+
+        $drivers[$this->driverInfo['name']] = $this->driverInfo['scrubber'];
+
+        file_put_contents($cachePath, json_encode($drivers), FILE_APPEND | LOCK_EX);
     }
 
     /**
