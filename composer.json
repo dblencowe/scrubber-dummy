@@ -1,6 +1,6 @@
 {
   "name": "dblencowe/scrubber-dummy",
-  "type": "composer-plugin",
+  "type": "library",
   "version": "0.0.2",
   "license": "MIT",
   "authors": [{
@@ -17,8 +17,5 @@
   },
   "require": {
     "composer-plugin-api": "^1.0"
-  },
-  "extra": {
-    "class": "Dblencowe\\ScrubberDummy\\Scrubber"
   }
 }
