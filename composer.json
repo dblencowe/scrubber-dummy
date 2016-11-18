@@ -12,10 +12,7 @@
       "Dblencowe\\ScrubberDummy\\": "src/Dblencowe/ScrubberDummy"
     }
   },
-  "require-dev": {
-    "Composer/Composer": "^1.2"
-  },
   "require": {
-    "composer-plugin-api": "^1.0"
+    "illuminate/database": "^5.3"
   }
 }
